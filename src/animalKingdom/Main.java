@@ -73,5 +73,27 @@ public class Main {
         System.out.println("*** List all the animals order by how they move ***");
         myList.sort((v1, v2) -> v1.move().compareToIgnoreCase(v2.move()));
         System.out.println(myList);
+
+        System.out.println();
+        System.out.println("*** List only those animals the breath with lungs ***");
+        List<Animals> filteredList = filterAnimal(myList, v -> v.breathe() == "Lungs");
+        filteredList.forEach(v -> System.out.println(v.getName() + " " + v.reproduce() + " " + v.move() + " " + v.breathe() + " " + v.getYear()));
+
+        System.out.println();
+        System.out.println("*** List only those animals that breath with lungs and were named in 1758 ***");
+        filteredList = filterAnimal(myList, v -> (v.breathe() == "Lungs") && (v.getYear() == 1758));
+        filteredList.forEach(v -> System.out.println(v.getName() + " " + v.reproduce() + " " + v.move() + " " + v.breathe() + " " + v.getYear()));
+
+        System.out.println();
+        System.out.println("*** List alphabetically only those animals that were named in 1758 ***");
+        filteredList = filterAnimal(myList, v -> (v.getYear() == 1758));
+        filteredList.sort((v1, v2) -> v1.getName().compareToIgnoreCase(v2.getName()));
+        filteredList.forEach(v -> System.out.println(v.getName() + " " + v.reproduce() + " " + v.move() + " " + v.breathe() + " " + v.getYear()));
+
+                System.out.println();
+        System.out.println("*** For the list of animals, list alphabetically those animals that are mammals ***");
+        filteredList = filterAnimal(myList, v -> (v instanceof Mammals));
+        filteredList.sort((v1, v2) -> v1.getName().compareToIgnoreCase(v2.getName()));
+        filteredList.forEach(v -> System.out.println(v.getName() + " " + v.reproduce() + " " + v.move() + " " + v.breathe() + " " + v.getYear()));
     }
 }
