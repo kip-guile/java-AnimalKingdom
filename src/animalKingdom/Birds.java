@@ -36,6 +36,6 @@ public class Birds extends Animals {
 
     @Override
     public String toString() {
-        return "Animals{id=" + id + ", name=" + name + ", yearNamed=" + year + "}";
+        return "Animals{id=" + id + ", name=" + name + ", yearNamed=" + year + "}\n";
     }
 }

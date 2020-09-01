@@ -63,5 +63,15 @@ public class Main {
         System.out.println("*** List all the animals in descending order by year named ***");
         myList.sort((v1, v2) -> v2.getYear() - v1.getYear());
         System.out.println(myList);
+
+        System.out.println();
+        System.out.println("*** List all the animals alphabetically ***");
+        myList.sort((v1, v2) -> v1.getName().compareToIgnoreCase(v2.getName()));
+        System.out.println(myList);
+
+        System.out.println();
+        System.out.println("*** List all the animals order by how they move ***");
+        myList.sort((v1, v2) -> v1.move().compareToIgnoreCase(v2.move()));
+        System.out.println(myList);
     }
 }
